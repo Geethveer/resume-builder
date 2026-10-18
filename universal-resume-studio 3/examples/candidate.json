@@ -1,0 +1,21 @@
+{
+  "candidate_id": "sample-candidate-001",
+  "full_name": "Alex Morgan",
+  "jurisdiction": "US",
+  "sponsorship_need": "later",
+  "years_experience": 7,
+  "allow_profile_storage": false,
+  "resume_text": "Alex Morgan — Operations and Procurement Manager. 7 years of experience in supply chain planning, procurement, forecasting, and supplier performance. Senior Supply Chain Specialist at Sample Distribution Co. (2022-2026). Managed inventory replenishment and capacity planning across branches. Directed sourcing and purchase orders for 14 suppliers; improved supplier on-time delivery from 82% to 96% through scorecard reviews. Built Excel reporting for risk and demand forecasts. Procurement Analyst at Example Industries (2019-2022). Managed materials for production and purchase order fulfillment. Education: BS in Supply Chain Management. Systems: Excel, ERP, Power BI.",
+  "verified_facts": [
+    {
+      "fact_id": "EX-001",
+      "statement": "Analyzed supply chain data in Excel, communicated findings to cross-functional stakeholders, and coordinated procurement, supplier lead-time recovery and warehouse teams.",
+      "verified": true,
+      "source_type": "candidate_attestation",
+      "source_reference": "Candidate confirmation, 2026-10-17",
+      "employer_id": null,
+      "date_range": null,
+      "metrics": []
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "policy_version": "2.0.0",
+  "scope": "Universal candidate profiles; configurable country-specific screening. US is implemented; other jurisdictions require manual legal review.",
+  "intake": {
+    "required": ["candidate_id", "full_name", "resume_text"],
+    "optional": ["email", "phone", "location", "target_roles", "years_experience", "education", "skills", "systems", "credentials", "verified_facts", "sponsorship_need", "willing_to_relocate", "preferred_work_mode"],
+    "allowed_uploads": [".docx", ".pdf", ".txt"],
+    "upload_max_mb": 8,
+    "ask_only_necessary_information": true,
+    "save_profile_by_default": false,
+    "never_request": ["SSN", "passport_number", "visa_receipt_number", "medical_records", "government_ID_scan"]
+  },
+  "gate1": {
+    "jurisdiction": "US",
+    "hard_stop_on_explicit_itar_or_role_export_control": true,
+    "hard_stop_on_explicit_citizenship_or_permanent_residency_restriction": true,
+    "hard_stop_on_clearance_requirement": true,
+    "hard_stop_on_explicit_no_sponsorship_if_candidate_needs_it": true,
+    "jurisdiction_unknown_action": "REVIEW",
+    "historical_h1b_is_primary_employer_signal": true,
+    "missing_h1b_history_action": "REVIEW_ONLY_IF_SPONSORSHIP_NEEDED",
+    "e_verify_requires_independent_evidence": true,
+    "missing_e_verify_action": "DO_NOT_ASSUME",
+    "specific_role_sponsorship_policy": "ONLY_REPORT_IF_EXPLICIT_IN_POSTING_OR_EMPOYER_OFFICIAL_SOURCE",
+    "no_restriction_language": "NOT_STATED_IN_POSTING",
+    "source_urls_required_for_external_verification": true,
+    "comment": "Restrictions are user-defined screening preferences, not a legal assertion that ITAR automatically requires citizenship. Some permanent residents and other protected individuals qualify as U.S. persons."
+  },
+  "gate2": {
+    "required_years": "CHECK_NUMERICALLY_AGAINST_VERIFIED_HISTORY",
+    "must_match_degree_or_equivalent": true,
+    "verify_named_licenses_and_certifications": true,
+    "verify_exact_software_and_module_experience": true,
+    "distinguish_direct_reports_from_manager_of_managers": true,
+    "use_resume_and_verified_candidate_facts": true,
+    "separate_true_gap_from_underrepresented_verified_fact": true,
+    "meaningful_gap_action": "REVIEW_AND_REQUIRE_EXPLICIT_USER_APPROVAL",
+    "preferred_only_gap_action": "WARN_BUT_DO_NOT_BLOCK",
+    "candidate_match_needs_human_validation": true
+  },
+  "gate3": {
+    "min_allowed_initial_score_exclusive": 65,
+    "weights": {
+      "required_qualifications": 40,
+      "core_responsibilities": 25,
+      "terminology": 20,
+      "verified_impact": 10,
+      "parse_safety_estimate": 5
+    },
+    "initial_score_source": "UNMODIFIED_UPLOADED_RESUME",
+    "projected_max_source": "ONLY_RESUME_AND_CANDIDATE_APPROVED_FACTS",
+    "missing_required_categories": "REPORT_AS_UNASSESSED_NOT_ZERO_TO_HUNDRED_CLAIM",
+    "low_initial_score_action": "STOP",
+    "never_claim": ["GUARANTEED_ATS_PASS", "EMPLOYER_ATS_SCORE", "UNIVERSAL_100_PERCENT_SCORE"]
+  },
+  "generation": {
+    "requires_all_gates_pass_or_gate2_user_override": true,
+    "resume_formats": ["docx", "pdf"],
+    "cover_letter_formats": ["docx", "pdf"],
+    "reports": ["assessment.json", "evidence_audit.json", "qa.json"],
+    "resume_page_target": "1-2 pages unless candidate/seniority calls for more",
+    "retain_names_dates_titles_and_institutions": true,
+    "do_not_invent_metrics_degrees_tools_or_scope": true,
+    "candidate_approval_for_newly_expanded_facts": true,
+    "reconcile_docx_pdf_vs_input": true,
+    "pdf_text_extraction_required_for_parse_QA": true,
+    "human_visual_review_before_submission": true,
+    "never_submit_application_automatically": true
+  },
+  "knowledge_base": {
+    "entities": ["candidate", "experience_claim", "credential", "company", "company_alias", "employer_evidence", "job_posting", "application", "resume_version", "cover_letter_version", "gate_result", "qa_result"],
+    "verify_company_legal_entity_before_joining_h1b_records": true,
+    "evidence_timestamp_required": true,
+    "cache_company_history_but_recheck_job_specific_restrictions_every_time": true,
+    "version_every_generated_document": true,
+    "applicant_data_is_private_and_not_shared_between_accounts": true
+  },
+  "operations": {
+    "target_seconds_per_cached_application": 180,
+    "do_not_claim_timing_guarantee": true,
+    "record_stage_duration": true,
+    "recheck_external_source_when_stale_or_conflicting": true
+  }
+}

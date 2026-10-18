@@ -1,0 +1,15 @@
+{
+  "legal_entity_name": "Example Distribution Co.",
+  "legal_entity_match_method": "sample_exact_name",
+  "h1b_history": {
+    "fiscal_year": "2026",
+    "approved_petitions": 2,
+    "lca_count": 3,
+    "source_description": "Fictional sample data for automated tests only",
+    "source_url": "https://example.invalid/employer-sample",
+    "checked_at": "2026-10-17"
+  },
+  "e_verify": {
+    "status": "UNKNOWN"
+  }
+}

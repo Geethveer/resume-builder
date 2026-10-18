@@ -1,0 +1,17 @@
+ALEX MORGAN
+Austin, Texas | alex@example.test
+SUMMARY
+Operations and procurement manager with seven years of experience supporting multi-site manufacturing and distribution.
+EXPERIENCE
+Senior Supply Chain Specialist | Sample Distribution Co. | 2022 - 2026
+- Directed sourcing and purchase orders for 14 suppliers across three operating locations.
+- Improved supplier on-time delivery from 82% to 96% through root-cause reviews and scorecards.
+- Led inventory replenishment and capacity planning across multiple warehouse locations.
+- Built Excel reporting for supplier performance, demand forecasts, and risk mitigation.
+Procurement Analyst | Example Industries | 2019 - 2022
+- Managed purchasing operations and material availability for production scheduling.
+- Worked with cross-functional teams to address late shipments and order management issues.
+EDUCATION
+BS in Supply Chain Management, Example University, 2019
+SYSTEMS
+Excel, ERP, Power BI, supplier scorecards, planning, forecasting

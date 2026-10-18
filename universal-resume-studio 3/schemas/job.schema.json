@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JobPosting",
+  "type": "object",
+  "required": [
+    "job_id",
+    "company_name",
+    "role_title",
+    "jd_text"
+  ],
+  "properties": {
+    "job_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "company_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "legal_employer_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "role_title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "jurisdiction": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "collected_at": {
+      "type": "string"
+    },
+    "jd_text": {
+      "type": "string",
+      "minLength": 100
+    },
+    "approve_gate1_review": {
+      "type": "boolean",
+      "default": false
+    },
+    "approve_gate2_gaps": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

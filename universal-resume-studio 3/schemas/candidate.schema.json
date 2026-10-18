@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CandidateProfile",
+  "type": "object",
+  "required": [
+    "candidate_id",
+    "full_name",
+    "resume_text"
+  ],
+  "properties": {
+    "candidate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "full_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "email": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "phone": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "location": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "jurisdiction": {
+      "type": "string"
+    },
+    "resume_text": {
+      "type": "string",
+      "minLength": 100
+    },
+    "years_experience": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "sponsorship_need": {
+      "enum": [
+        "none",
+        "now",
+        "later",
+        "both",
+        "unknown",
+        "prefer_not_to_say"
+      ]
+    },
+    "education": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verified_facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "fact_id",
+          "statement",
+          "verified",
+          "source_type",
+          "source_reference"
+        ],
+        "properties": {
+          "fact_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 4
+          },
+          "verified": {
+            "type": "boolean"
+          },
+          "source_type": {
+            "enum": [
+              "resume",
+              "candidate_attestation",
+              "credential",
+              "document",
+              "employer_reference"
+            ]
+          },
+          "source_reference": {
+            "type": "string",
+            "minLength": 1
+          },
+          "employer_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "date_range": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "metrics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "allow_profile_storage": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

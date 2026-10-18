@@ -1,0 +1,13 @@
+{
+  "job_id": "fictional-role-123",
+  "company_name": "Example Distribution Co.",
+  "legal_employer_name": "Example Distribution Co.",
+  "role_title": "Senior Manager, Supply Planning",
+  "jurisdiction": "US",
+  "location": "Austin, TX",
+  "source_url": "https://example.invalid/jobs/123",
+  "collected_at": "2026-10-17",
+  "approve_gate1_review": false,
+  "approve_gate2_gaps": false,
+  "jd_text": "Senior Manager, Supply Planning\nResponsibilities\n- Lead inventory and supply planning across distribution branches and supplier operations.\n- Develop capacity plans, forecast demand, coordinate purchase orders, and monitor shipments.\n- Assess supplier risks, recommend recovery actions, and communicate risks to leadership teams.\n- Improve supplier performance, execute replenishment plans, and support order management.\nMinimum Qualifications\n- Bachelor degree in business, engineering, or supply chain management.\n- 5+ years of experience in purchasing, forecasting, planning, logistics, or inventory control.\n- Experience leading supplier performance and solving supply chain disruptions.\n- Experience analyzing data in Excel and managing cross-functional stakeholders.\nPreferred Qualifications\n- Power BI reporting and supply chain process improvement."
+}

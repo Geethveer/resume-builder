@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EmployerEvidence",
+  "type": "object",
+  "properties": {
+    "legal_entity_name": {
+      "type": "string"
+    },
+    "legal_entity_match_method": {
+      "type": "string"
+    },
+    "h1b_history": {
+      "type": "object",
+      "properties": {
+        "fiscal_year": {
+          "type": "string"
+        },
+        "approved_petitions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "lca_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "source_description": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "checked_at": {
+          "type": "string"
+        }
+      }
+    },
+    "e_verify": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "ENROLLED",
+            "NOT_FOUND",
+            "UNKNOWN"
+          ]
+        },
+        "legal_entity_name": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "checked_at": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

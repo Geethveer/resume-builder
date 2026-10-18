@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ApplicationAssessment",
+  "type": "object",
+  "required": [
+    "application_key",
+    "gate1",
+    "may_generate",
+    "next_action"
+  ],
+  "properties": {
+    "application_key": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "employer": {
+      "type": "string"
+    },
+    "job_id": {
+      "type": "string"
+    },
+    "job_title": {
+      "type": "string"
+    },
+    "source_resume_sha256": {
+      "type": "string"
+    },
+    "policy_version": {
+      "type": "string"
+    },
+    "checked_date": {
+      "type": "string"
+    },
+    "gate1": {
+      "type": "object"
+    },
+    "gate2": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "gate3": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "may_generate": {
+      "type": "boolean"
+    },
+    "next_action": {
+      "type": "string"
+    }
+  }
+}

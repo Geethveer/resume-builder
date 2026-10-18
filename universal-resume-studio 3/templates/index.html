@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Resume Studio | Evidence-first applications</title>
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <header class="topbar"><div class="brand"><span class="mark">RS</span><span>Resume Studio</span></div><div class="top-right"><span class="status-dot"></span> Private local prototype <span class="version">v0.1</span></div></header>
+  <div class="workspace">
+    <aside class="sidebar">
+      <div class="eyebrow">WORKFLOW</div>
+      <h1>Make every<br>application count.</h1>
+      <p>One verified profile. Three screening gates. No made-up experience.</p>
+      <div class="steps" aria-label="Questionnaire progress">
+        <button class="step active" data-step="0"><span>01</span><div><strong>Your profile</strong><small>Who you are</small></div></button>
+        <button class="step" data-step="1"><span>02</span><div><strong>Eligibility & goals</strong><small>Preferences and work status</small></div></button>
+        <button class="step" data-step="2"><span>03</span><div><strong>Your evidence</strong><small>Resume and confirmed facts</small></div></button>
+        <button class="step" data-step="3"><span>04</span><div><strong>Target opening</strong><small>Job description and employer</small></div></button>
+        <button class="step" data-step="4"><span>05</span><div><strong>Gate results</strong><small>Review, approve, export</small></div></button>
+      </div>
+      <div class="aside-note"><strong>Privacy by design</strong><p>Runs on your computer. Resume data is not sent to an external AI service. Saving your profile is optional. This prototype is not a public multi-user service.</p></div>
+    </aside>
+    <main class="main">
+      <section class="panel intro">
+        <span class="eyebrow">EVIDENCE FIRST</span>
+        <h2>Build an application from facts, not fiction.</h2>
+        <p>Complete the short intake once. Upload a resume, paste a job description, and check eligibility before creating an ATS-readable application package.</p>
+      </section>
+      <div id="message" role="alert" aria-live="polite" hidden></div>
+      <form id="wizard" novalidate>
+        <section class="form-step" data-step="0">
+          <div class="saved-profile"><label>Returning? Reuse a saved profile<select id="saved-profiles"><option value="">Start a new profile</option></select></label><button class="btn subtle" type="button" id="use-profile">Use saved profile</button></div>
+          <div class="section-header"><div class="step-index">01 / 05</div><h2>Your profile</h2><p>Only your name and resume are required to begin. Other details improve document quality and job matching.</p></div>
+          <div class="grid two"><label>Full name <strong>*</strong><input id="full_name" name="full_name" autocomplete="name" required placeholder="Jane Candidate"></label><label>Email address <span>Optional</span><input type="email" id="email" autocomplete="email" placeholder="jane@example.com"></label>
+          <label>Phone <span>Optional</span><input id="phone" type="tel" autocomplete="tel" placeholder="+1 555 010 1234"></label><label>Current city / country<input id="location" placeholder="Austin, TX, USA"></label></div>
+          <label>Target job titles <span>Optional</span><input id="target_roles" placeholder="Supply Chain Manager, Operations Manager"></label>
+        </section>
+        <section class="form-step" data-step="1" hidden>
+          <div class="section-header"><div class="step-index">02 / 05</div><h2>Eligibility & goals</h2><p>These details are used only to evaluate job fit and eligibility. Do not enter passport numbers, immigration case numbers, or identification documents.</p></div>
+          <div class="grid two"><label>Job market / jurisdiction<select id="jurisdiction"><option value="US">United States</option><option value="CA">Canada</option><option value="UK">United Kingdom</option><option value="EU">European Union</option><option value="OTHER">Other</option></select></label>
+          <label>Employer immigration sponsorship needs <span>Optional</span><select id="needs_sponsorship"><option value="prefer_not_to_say">Prefer not to say</option><option value="none">No sponsorship needed</option><option value="now">Currently need sponsorship</option><option value="future">May need future sponsorship</option><option value="now_and_future">Now and in future</option></select></label>
+          <label>Relocation flexibility<select id="relocation"><option value="open">Open to relocation</option><option value="limited">Depends on location</option><option value="no">Not relocating</option></select></label><label>Preferred work arrangement<select id="work_arrangement"><option value="any">Any</option><option value="onsite">On-site</option><option value="hybrid">Hybrid</option><option value="remote">Remote</option></select></label></div>
+          <label>Additional constraints <span>Optional</span><textarea rows="2" id="employment_constraints" placeholder="Locations, travel limits, employment type, work hours"></textarea></label>
+        </section>
+        <section class="form-step" data-step="2" hidden>
+          <div class="section-header"><div class="step-index">03 / 05</div><h2>Your evidence</h2><p>Upload your current resume. Supplement it with achievements that you can personally verify. Nothing will be invented or assigned to an employer without your evidence.</p></div>
+          <label class="upload" id="resume-zone">Resume file <strong>*</strong><input id="resume-file" type="file" accept=".docx,.pdf,.txt" required><span>Choose a DOCX, selectable PDF, or TXT (up to 8 MB)</span><small id="file-label">No file selected</small></label>
+          <div class="grid two"><label>Years of relevant work experience <span>Optional</span><input id="years_experience" type="number" min="0" max="60" step="0.5" placeholder="7"></label><label>Key systems / tools <span>Optional</span><input id="systems" placeholder="SAP, Power BI, Salesforce"></label></div>
+          <label>Additional verified achievements <span>One factual statement per line</span><textarea rows="5" id="verified_facts" placeholder="Led the rollout of a new inventory planning process across 12 sites.\nReduced planning cycle time by 28% using verified process improvements."></textarea></label>
+          <label>Certifications / licenses <span>Optional</span><input id="certifications" placeholder="PMP, OSHA 30, AWS Solutions Architect"></label>
+          <label>Leadership scope <span>Optional</span><input id="leadership_scope" placeholder="Direct reports, budgets, functions owned (verified only)"></label>
+          <label class="check"><input type="checkbox" id="save_locally"><span><strong>Save this profile on this computer</strong><small>Off by default. Your answers and extracted resume text are otherwise kept only in temporary server memory.</small></span></label>
+        </section>
+        <section class="form-step" data-step="3" hidden>
+          <div class="section-header"><div class="step-index">04 / 05</div><h2>Target opening</h2><p>Paste the full posting including minimum qualifications and responsibilities. A job URL alone is not enough for an accurate screen.</p></div>
+          <div class="grid two"><label>Hiring company <strong>*</strong><input id="company" required placeholder="Example Manufacturing Inc."></label><label>Job title <strong>*</strong><input id="job_title" required placeholder="Senior Procurement Manager"></label></div>
+          <label>Full job description <strong>*</strong><textarea rows="11" id="job_description" required placeholder="Responsibilities&#10;- ...&#10;Minimum qualifications&#10;- ...&#10;Preferred qualifications&#10;- ..."></textarea></label>
+          <details class="evidence-advanced"><summary>Optional: employer research evidence and H-1B records</summary>
+            <p class="field-hint">For U.S. applications, historical H-1B approvals provide context but not a promise to sponsor this role. E-Verify enrollment is a separate check.</p>
+            <div class="grid two"><label>H-1B evidence<select id="h1b_status"><option value="">No evidence supplied</option><option value="historical_records">Historical sponsorship evidence</option></select></label><label>Source URL for H-1B claim<input id="h1b_url" type="url" placeholder="https://www.uscis.gov/..."></label>
+            <label>E-Verify enrollment<select id="everify_status"><option value="">Not verified</option><option value="verified">Verified via official source</option></select></label><label>E-Verify verification URL<input id="everify_url" type="url" placeholder="https://www.e-verify.gov/..."></label></div>
+            <label class="upload small-upload">Import employer data (CSV / XLSX)<input id="employer-file" type="file" accept=".csv,.xlsx"><span>Optional: historical employer records from your own approved source.</span></label><button class="btn subtle" type="button" id="import-employers">Import selected employer records</button><small id="import-status"></small>
+          </details>
+        </section>
+        <section class="form-step" data-step="4" hidden>
+          <div class="section-header"><div class="step-index">05 / 05</div><h2>Verification results</h2><p>Nothing is generated until all gates clear. Gaps need your explicit approval, and a baseline alignment score of 65 or lower stops the process.</p></div>
+          <div id="result-empty" class="empty-state">Complete the questionnaire and analyze a job to see the gates.</div>
+          <div id="results" hidden>
+            <div class="gate" id="gate1"></div><div class="gate" id="gate2"></div><div class="gate" id="gate3"></div>
+            <div class="actions"><button type="button" class="btn primary" id="approve-button" hidden>Approve documented gaps & check ATS</button><button type="button" class="btn primary" id="generate-button" hidden>Download application package</button></div>
+            <p class="fine-print">Scores are internal alignment heuristics, not actual scores from employer ATS products. Review all generated text before applying.</p>
+          </div>
+        </section>
+        <div class="footer-actions"><button type="button" id="back" class="btn subtle">Back</button><div class="footer-right"><span id="progress-count">Step 1 of 5</span><button type="button" id="next" class="btn primary">Continue <span aria-hidden="true">→</span></button></div></div>
+      </form>
+    </main>
+  </div>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
